@@ -1,0 +1,19 @@
+Add to Cart working:
+
+Views:
+- products.blade.php
+- cart.blade.php
+
+Controller:
+- productController.php
+
+CSS:
+- In public -> css -> style.css
+
+In web.php:
+Bottom of the page, added:
+Route::get('/products', [ProductController::class, 'index']);
+Route::get('/cart', [ProductController::class, 'cart'])->name('cart');
+Route::get('add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+Route::patch('update-cart', [ProductController::class, 'update'])->name('update.cart');
+Route::delete('remove-from-cart', [ProductController::class, 'remove'])->name('remove.from.cart');
